@@ -1,4 +1,4 @@
-# Define build environment
+# Configure AWS
 provider "aws" {
   
   alias = "sca"
@@ -12,8 +12,13 @@ provider "aws" {
 
 }
 
-# Configure the DigitalOcean Provider
+# Configure DigitalOcean
 provider "digitalocean" {
   alias = "sca"
-  token = "${file("/home/user/.doc/credentials")}"
+  token = "${trimspace(file("/home/user/.doc/doc-write"))}"
+}
+
+variable "digital_ocean_zone" {
+  type = "string"
+  default = "nyc3"  
 }
