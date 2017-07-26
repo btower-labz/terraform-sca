@@ -91,7 +91,7 @@ resource "aws_instance" "cislave" {
       user = "ec2-user"
       # password = ""
       private_key = "${file(var.sca_key_ppk)}"
-      # agent = true
+      agent = false
     }
   }
 
@@ -102,7 +102,7 @@ resource "aws_instance" "cislave" {
       user = "ec2-user"
       # password = ""
       private_key = "${file(var.sca_key_ppk)}"
-      # agent = true
+      agent = false
     }
     inline = [
      "sudo yum check-update",
