@@ -10,18 +10,26 @@ resource "aws_security_group" "sca_cimaster_sec" {
     cidr_blocks = ["${var.sca_admin_ip}"]
   }
 
+  # TODO: Place all cislave hosts here.
   ingress {
     from_port   = 50000
     to_port     = 50000
     protocol    = "tcp"
-    cidr_blocks = ["${var.sca_admin_ip}"]
+    cidr_blocks = [
+      "${var.sca_admin_ip}",
+      "${var.sca_world_ip}"
+    ]
   }
 
+  # TODO: Place all cislave hosts here.
   ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["${var.sca_admin_ip}"]
+    cidr_blocks = [
+      "${var.sca_admin_ip}",
+      "${var.sca_world_ip}"
+    ]
   }
 
   egress {
