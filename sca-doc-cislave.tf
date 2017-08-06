@@ -10,8 +10,8 @@ resource "digitalocean_droplet" "cislave" {
   resize_disk = "false"
   ssh_keys = [ "${digitalocean_ssh_key.sca.fingerprint}" ]
   tags = [
-    "${digitalocean_tag.do_project_sca.id}",
-    "${digitalocean_tag.do_env_staging.id}",
     "${digitalocean_tag.do_class_cislave.id}",
+    "${digitalocean_tag.do_project_sca.id}",
+    "${digitalocean_tag.do_env_staging.id}"
   ]
 }

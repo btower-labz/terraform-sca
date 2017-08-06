@@ -6,4 +6,3 @@ resource "aws_key_pair" "sca" {
   key_name   = "sca-key"
   public_key = "${file("${var.sca_key_pub}")}"
 }
-
