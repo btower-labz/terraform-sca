@@ -1,3 +1,5 @@
+# SCA CI master aws instance
+
 resource "aws_security_group" "sca_cimaster_sec" {
   name        = "sca_cimaster_sec"
   description = "SCA CIMaster Security Group"
@@ -105,7 +107,7 @@ resource "aws_instance" "cimaster" {
 
   # Deploy provision script
   provisioner "file" {
-    source      = "pro-aws.sh"
+    source      = "scripts/pro-aws.sh"
     destination = "~/pro-aws.sh"
 
     connection {

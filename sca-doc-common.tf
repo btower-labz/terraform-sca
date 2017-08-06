@@ -1,9 +1,12 @@
+# SCA CI common doc objects
+
 resource "digitalocean_ssh_key" "sca" {
   provider = "digitalocean.sca"
   name       = "sca-key"
   public_key = "${file("${var.sca_key_pub}")}"
 }
 
+# TODO: uncertain tag sort order. it mutate each apply.
 resource "digitalocean_tag" "do_project_sca" {
   provider = "digitalocean.sca"
   name = "do_project_sca"

@@ -1,4 +1,7 @@
-# Configure AWS
+### SCA CI cloud providers
+
+###
+## Configure AWS
 variable "rig_aws_region" {
   type = "string"
   default = "us-west-2"
@@ -21,7 +24,8 @@ provider "aws" {
   profile = "${var.rig_aws_profile}"
 }
 
-# Configure DigitalOcean
+###
+## Configure DigitalOcean
 variable "digital_ocean_zone" {
   type = "string"
   default = "nyc3"
@@ -32,8 +36,8 @@ provider "digitalocean" {
   token = "${trimspace(file("/home/user/.doc/doc-write"))}"
 }
 
-# Configure GoogleCloud
-
+###
+## Configure GoogleCloud
 variable "rig_gcp_file" {
   type = "string"
   default = "/home/user/.gcp/gcp-write"

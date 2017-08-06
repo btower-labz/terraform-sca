@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+# test provision script
 
 set -o nounset
 set -o noclobber
 set -o errexit
 set -o pipefail
+
+echo "aws provision ..."
 
 rm -f ~/test.dat
 touch ~/test.dat

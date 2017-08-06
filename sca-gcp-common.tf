@@ -1,3 +1,5 @@
+# SCA CI common gcp objects
+
 # Project wide ssh keys
 /*
 resource "google_compute_project_metadata" "default" {

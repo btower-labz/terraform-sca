@@ -1,3 +1,5 @@
+# SCA CI slave aws instance
+
 resource "aws_security_group" "sca_cislave_sec" {
   name        = "sca_cislave_sec"
   description = "SCA CISlave Security Group"
@@ -83,7 +85,7 @@ resource "aws_instance" "cislave" {
 
   # Deploy provision script
   provisioner "file" {
-    source      = "pro-aws.sh"
+    source      = "scripts/pro-aws.sh"
     destination = "~/pro-aws.sh"
 
     connection {
@@ -113,6 +115,7 @@ resource "aws_instance" "cislave" {
   }
 }
 
+# TODO: merge with doc and gcp
 output "cislave_ip" {
   value = "${aws_instance.cislave.*.public_ip}"
 }

@@ -1,3 +1,5 @@
+# SCA CI slave doc instance
+
 # Create slave 001
 resource "digitalocean_droplet" "cislave" {
   provider = "digitalocean.sca"
