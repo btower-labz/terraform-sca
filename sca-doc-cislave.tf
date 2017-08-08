@@ -18,3 +18,10 @@ resource "digitalocean_droplet" "cislave" {
   ]
 }
 
+output "aws_cislave_ip" {
+  value = "${digitalocean_droplet.cislave.*.ipv4_address}"
+}
+
+output "aws_cislave_id" {
+  value = "${digitalocean_droplet.cislave.*.id}"
+}

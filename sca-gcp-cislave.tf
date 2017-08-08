@@ -1,3 +1,5 @@
+# SCA CI slave doc instance
+
 resource "google_compute_instance" "cislave" {
   provider = "google.sca"
   name         = "sca-cislave-${count.index}"
@@ -40,4 +42,12 @@ resource "google_compute_instance" "cislave" {
  # service_account {
  #   scopes = ["userinfo-email", "compute-ro", "storage-ro"]
  # }
+}
+
+output "aws_cislave_ip" {
+  value = "${google_compute_instance.cimaster.*.network_interface.0.access_config.0.assigned_nat_ip}"
+}
+
+output "aws_cislave_id" {
+  value = "${google_compute_instance.cislave.*.id}"
 }

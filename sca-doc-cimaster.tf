@@ -1,4 +1,4 @@
-# SCA CI slave doc instance
+# SCA CIMaster DOC Instance
 
 resource "digitalocean_droplet" "cimaster" {
   provider = "digitalocean.sca"
