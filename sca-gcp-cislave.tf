@@ -3,7 +3,7 @@
 
 resource "google_compute_instance" "cislave" {
   provider = "google.sca"
-  name         = "sca-cislave-${count.index}"
+  name         = "sca-cislave-gcp-${count.index}"
   machine_type = "f1-micro"
   zone         = "${var.rig_gcp_zone}"
 

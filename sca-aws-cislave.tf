@@ -79,7 +79,7 @@ resource "aws_instance" "cislave" {
   ]
 
   tags {
-    Name = "SCA CI Slave ${count.index}"
+    Name = "sca-cislave-aws-${count.index}"
     env = "staging"
     class = "cislave"
     project = "sca"

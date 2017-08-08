@@ -3,7 +3,7 @@
 
 resource "google_compute_instance" "cimaster" {
   provider = "google.sca"
-  name         = "sca-cimaster"
+  name         = "sca-cimaster-gcp"
   machine_type = "f1-micro"
   zone         = "${var.rig_gcp_zone}"
 

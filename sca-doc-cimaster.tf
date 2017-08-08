@@ -4,7 +4,7 @@
 resource "digitalocean_droplet" "cimaster" {
   provider = "digitalocean.sca"
   image  = "debian-9-x64"
-  name   = "sca-cimaster"
+  name   = "sca-cimaster-doc"
   region = "${var.digital_ocean_zone}"
   size   = "512mb"
   backups = "false"

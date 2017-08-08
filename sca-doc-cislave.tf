@@ -4,7 +4,7 @@
 resource "digitalocean_droplet" "cislave" {
   provider = "digitalocean.sca"
   image  = "debian-9-x64"
-  name   = "sca-cislave-${count.index}"
+  name   = "sca-cislave-doc-${count.index}"
   region = "${var.digital_ocean_zone}"
   size   = "512mb"
   backups = "false"

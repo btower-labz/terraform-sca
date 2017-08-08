@@ -101,7 +101,7 @@ resource "aws_instance" "cimaster" {
   ]
 
   tags {
-    Name = "SCA CI Master"
+    Name = "sca-cimaster-aws"
     env = "staging"
     class = "cimaster"
     project = "sca"
