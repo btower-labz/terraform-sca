@@ -4,28 +4,28 @@
 variable "sca_cimaster_location"
 {
   type = "string"
-  default = "gcp"
+  default = "aws"
 }
 
 # aws cislave count
 variable "sca_aws_cislave_count"
 {
   type = "string"
-  default = "0"
+  default = "1"
 }
 
 # doc cislave count
 variable "sca_doc_cislave_count"
 {
   type = "string"
-  default = "0"
+  default = "1"
 }
 
 # gcp cislave count
 variable "sca_gcp_cislave_count"
 {
   type = "string"
-  default = "0"
+  default = "1"
 }
 
 # Admin ip address range

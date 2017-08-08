@@ -139,10 +139,10 @@ resource "aws_instance" "cimaster" {
   }
 }
 
-output "cimaster_ip" {
+output "aws_cimaster_ip" {
   value = "${aws_instance.cimaster.public_ip}"
 }
 
-output "cimaster_id" {
+output "aws_cimaster_id" {
   value = "${aws_instance.cimaster.id}"
 }

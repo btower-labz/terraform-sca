@@ -118,10 +118,10 @@ resource "aws_instance" "cislave" {
 }
 
 # TODO: merge with doc and gcp
-output "cislave_ip" {
+output "aws_cislave_ip" {
   value = "${aws_instance.cislave.*.public_ip}"
 }
 
-output "cislave_id" {
+output "aws_cislave_id" {
   value = "${aws_instance.cislave.*.id}"
 }
