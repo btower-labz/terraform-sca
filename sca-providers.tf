@@ -40,7 +40,7 @@ provider "digitalocean" {
 ## Configure GoogleCloud
 variable "rig_gcp_file" {
   type = "string"
-  default = "/home/user/.gcp/gcp-new"
+  default = "/home/user/.gcp/gcp-write"
 }
 
 variable "rig_gcp_region" {
