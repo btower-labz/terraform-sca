@@ -65,7 +65,8 @@ resource "google_compute_instance" "cimaster" {
     }
     inline = [
      # dbus is must.
-     "sudo apt-get update && apt-get install -y dbus",
+     "sudo apt-get update",
+     "sudo apt-get install -y dbus",
      "ls -la",
      "sudo ls -la",
      "echo ${self.network_interface.0.access_config.0.assigned_nat_ip}",
