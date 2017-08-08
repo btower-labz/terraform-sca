@@ -1,4 +1,4 @@
-# SCA CI common doc objects
+# SCA RIG common DOC objects
 
 resource "digitalocean_ssh_key" "sca" {
   provider = "digitalocean.sca"

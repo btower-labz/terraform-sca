@@ -1,4 +1,5 @@
-# SCA CI slave doc instance
+# SCA RIG CISlave DOC Instance
+# TODO: firewall
 
 resource "digitalocean_droplet" "cislave" {
   provider = "digitalocean.sca"

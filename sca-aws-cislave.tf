@@ -1,4 +1,4 @@
-# SCA CI slave aws instance
+# SCA RIG CISlave AWS Instance
 
 resource "aws_security_group" "sca_cislave_sec" {
   name        = "sca_cislave_sec"

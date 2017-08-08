@@ -1,4 +1,4 @@
-# SCA CIMaster AWS Instance
+# SCA RIG CIMaster AWS Instance
 
 resource "aws_security_group" "sca_cimaster_sec" {
   name        = "sca_cimaster_sec"

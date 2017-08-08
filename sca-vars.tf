@@ -1,4 +1,4 @@
-## SCA CI rig variables
+# SCA RIG input variables
 
 # cimaster location (aws|doc|gcp)
 variable "sca_cimaster_location"

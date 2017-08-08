@@ -1,4 +1,5 @@
-# SCA CIMaster GCP Instance
+# SCA RIG CIMaster GCP Instance
+# TODO: firewall
 
 resource "google_compute_instance" "cimaster" {
   provider = "google.sca"
@@ -26,7 +27,6 @@ resource "google_compute_instance" "cimaster" {
   #  scratch = true
   #}
 
-  # TODO: firewall
   network_interface {
     network = "default"
     access_config {

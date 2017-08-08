@@ -1,4 +1,4 @@
-### SCA CI cloud providers
+### SCA RIG provider configuration
 
 ###
 ## Configure AWS

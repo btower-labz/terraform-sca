@@ -1,4 +1,5 @@
-# SCA CIMaster DOC Instance
+# SCA RIG CIMaster DOC Instance
+# TODO: firewall
 
 resource "digitalocean_droplet" "cimaster" {
   provider = "digitalocean.sca"

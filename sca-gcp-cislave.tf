@@ -1,4 +1,5 @@
-# SCA CI slave doc instance
+# SCA RIG CISlave GCP Instance
+# TODO: firewall
 
 resource "google_compute_instance" "cislave" {
   provider = "google.sca"

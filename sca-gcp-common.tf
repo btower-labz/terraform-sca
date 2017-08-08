@@ -1,4 +1,4 @@
-# SCA CI common gcp objects
+# SCA RIG common GCP objects
 
 # Project wide ssh keys
 # Do not touch. Use per machine ssh keys.
