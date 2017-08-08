@@ -45,7 +45,7 @@ resource "google_compute_instance" "cislave" {
 }
 
 output "gcp_cislave_ip" {
-  value = "${google_compute_instance.cimaster.*.network_interface.0.access_config.0.assigned_nat_ip}"
+  value = "${google_compute_instance.cislave.*.network_interface.0.access_config.0.assigned_nat_ip}"
 }
 
 output "gcp_cislave_id" {
