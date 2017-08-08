@@ -4,7 +4,7 @@
 resource "google_compute_instance" "cimaster" {
   provider = "google.sca"
   name         = "sca-cimaster-gcp"
-  machine_type = "g1-micro"
+  machine_type = "g1-small"
   zone         = "${var.rig_gcp_zone}"
 
   # cimaster gcp cloud switch
