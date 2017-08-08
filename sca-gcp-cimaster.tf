@@ -12,9 +12,9 @@ resource "google_compute_instance" "cimaster" {
 
   # TODO: try to use labels
   tags = [
-    "envstaging",
-    "projectsca",
-    "classcimaster"
+    "gcpenvstaging",
+    "gcpprojectsca",
+    "gcpclasscimaster"
   ]
 
   disk {

@@ -11,9 +11,9 @@ resource "google_compute_instance" "cislave" {
 
   # TODO: try to use labels
   tags = [
-    "envstaging",
-    "projectsca",
-    "classcisalve"
+    "gcpenvstaging",
+    "gcpprojectsca",
+    "gcpclasscislave"
   ]
 
   disk {
