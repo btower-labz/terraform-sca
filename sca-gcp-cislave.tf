@@ -1,16 +1,26 @@
-/*
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "sca-cislave-gcp" {
   
   provider = "google.sca"
 
-  name         = "sca002"
+  name         = "sca-cislave-${count.index}"
   machine_type = "f1-micro"
-  zone         = "${var.rig_gcp_region}"
+  zone         = "${var.rig_gcp_zone}"
 
-  tags = [ 
-    "gcp_class_cislave",
-    "gcp_project_sca",
-    "gcp_env_staging"
+  count=3
+
+  # TODO: try to use labels
+  /*
+  labels {
+    env = "staging"
+    project = "sca"
+    class = "cislave"
+  }
+  */
+
+  tags = [
+    "envstaging",
+    "projectsca",
+    "classcisalve"
   ]
 
   disk {
@@ -23,17 +33,16 @@ resource "google_compute_instance" "default" {
   #  scratch = true
   #}
 
-  #network_interface {
-  #  network = "default"
-
- 
-#   access_config {
- #     // Ephemeral IP
-  #  }
-  #}
+  network_interface {
+    network = "default"
+    access_config {
+      // Ephemeral IP
+    }
+  }
 
   metadata {
     block-project-ssh-keys="false"
+    sshKeys = "${var.rig_gcp_user}:${trimspace(file("${var.sca_key_pub}"))}"
   }
 
 
@@ -43,5 +52,3 @@ resource "google_compute_instance" "default" {
  #   scopes = ["userinfo-email", "compute-ro", "storage-ro"]
  # }
 }
-*/
-

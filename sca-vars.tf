@@ -1,5 +1,33 @@
 ## SCA CI rig variables
 
+# cimaster location (aws|doc|gcp)
+variable "sca_cimaster_location"
+{
+  type = "string"
+  default = "gcp"
+}
+
+# aws cislave count
+variable "sca_aws_cislave_count"
+{
+  type = "string"
+  default = "0"
+}
+
+# doc cislave count
+variable "sca_doc_cislave_count"
+{
+  type = "string"
+  default = "0"
+}
+
+# gcp cislave count
+variable "sca_gcp_cislave_count"
+{
+  type = "string"
+  default = "0"
+}
+
 # Admin ip address range
 variable "sca_admin_ip"
 {

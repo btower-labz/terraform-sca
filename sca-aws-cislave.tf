@@ -67,7 +67,9 @@ resource "aws_instance" "cislave" {
   # User defined build image
   ami           = "${data.aws_ami.cislave.id}"
   instance_type = "t2.micro"
-  count = 2
+  
+  # number of slaves
+  count = "${var.sca_aws_cislave_count}"
 
   # Use builder ssh key
   key_name = "sca-key"

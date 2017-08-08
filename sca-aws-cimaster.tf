@@ -89,7 +89,9 @@ resource "aws_instance" "cimaster" {
   # User defined build image
   ami           = "${data.aws_ami.cimaster.id}"
   instance_type = "t2.micro"
-  count = 1
+
+  # cimaster aws cloud switch
+  count = "${var.sca_cimaster_location == "aws" ? 1 : 0}"
 
   # Use builder ssh key
   key_name = "sca-key"
