@@ -1,4 +1,4 @@
-### SCA CI cloud providers
+### SCA RIG provider configuration
 
 ###
 ## Configure AWS
@@ -55,7 +55,7 @@ variable "rig_gcp_zone" {
 
 variable "rig_gcp_project" {
   type = "string"
-  default = "btowerlab-sca"
+  default = "btowerlabz-sca"
 }
 
 variable "rig_gcp_user" {

@@ -1,4 +1,4 @@
-# SCA CI master aws instance
+# SCA RIG CIMaster AWS Instance
 
 resource "aws_security_group" "sca_cimaster_sec" {
   name        = "sca_cimaster_sec"
@@ -89,7 +89,9 @@ resource "aws_instance" "cimaster" {
   # User defined build image
   ami           = "${data.aws_ami.cimaster.id}"
   instance_type = "t2.micro"
-  count = 1
+
+  # cimaster aws cloud switch
+  count = "${var.sca_cimaster_location == "aws" ? 1 : 0}"
 
   # Use builder ssh key
   key_name = "sca-key"
@@ -99,7 +101,7 @@ resource "aws_instance" "cimaster" {
   ]
 
   tags {
-    Name = "SCA CI Master"
+    Name = "sca-cimaster-aws"
     env = "staging"
     class = "cimaster"
     project = "sca"
@@ -137,10 +139,10 @@ resource "aws_instance" "cimaster" {
   }
 }
 
-output "cimaster_ip" {
+output "aws_cimaster_ip" {
   value = "${aws_instance.cimaster.public_ip}"
 }
 
-output "cimaster_id" {
+output "aws_cimaster_id" {
   value = "${aws_instance.cimaster.id}"
 }

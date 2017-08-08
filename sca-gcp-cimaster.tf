@@ -1,19 +1,20 @@
-# SCA RIG CISlave GCP Instance
+# SCA RIG CIMaster GCP Instance
 # TODO: firewall
 
-resource "google_compute_instance" "cislave" {
+resource "google_compute_instance" "cimaster" {
   provider = "google.sca"
-  name         = "sca-cislave-gcp-${count.index}"
+  name         = "sca-cimaster-gcp"
   machine_type = "g1-small"
   zone         = "${var.rig_gcp_zone}"
 
-  count = "${var.sca_gcp_cislave_count}"
+  # cimaster gcp cloud switch
+  count = "${var.sca_cimaster_location == "gcp" ? 1 : 0}"
 
   # TODO: try to use labels
   tags = [
     "gcpenvstaging",
     "gcpprojectsca",
-    "gcpclasscislave"
+    "gcpclasscimaster"
   ]
 
   disk {
@@ -26,7 +27,6 @@ resource "google_compute_instance" "cislave" {
   #  scratch = true
   #}
 
-  # TODO: firewall
   network_interface {
     network = "default"
     access_config {
@@ -75,15 +75,17 @@ resource "google_compute_instance" "cislave" {
     ]
   }
 
+
  # service_account {
  #   scopes = ["userinfo-email", "compute-ro", "storage-ro"]
  # }
 }
 
-output "gcp_cislave_ip" {
-  value = "${google_compute_instance.cislave.*.network_interface.0.access_config.0.assigned_nat_ip}"
+# TODO: find correct way to get the public ip
+output "gcp_cimaster_ip" {
+  value = "${google_compute_instance.cimaster.network_interface.0.access_config.0.assigned_nat_ip}"
 }
 
-output "gcp_cislave_id" {
-  value = "${google_compute_instance.cislave.*.id}"
+output "gcp_cimaster_id" {
+  value = "${google_compute_instance.cimaster.id}"
 }

@@ -1,4 +1,4 @@
-# SCA CI common aws objects
+# SCA RIG common AWS objects
 
 # Define build image access key
 resource "aws_key_pair" "sca" {

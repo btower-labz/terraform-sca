@@ -1,4 +1,4 @@
-# SCA CI slave aws instance
+# SCA RIG CISlave AWS Instance
 
 resource "aws_security_group" "sca_cislave_sec" {
   name        = "sca_cislave_sec"
@@ -67,7 +67,9 @@ resource "aws_instance" "cislave" {
   # User defined build image
   ami           = "${data.aws_ami.cislave.id}"
   instance_type = "t2.micro"
-  count = 2
+  
+  # number of slaves
+  count = "${var.sca_aws_cislave_count}"
 
   # Use builder ssh key
   key_name = "sca-key"
@@ -77,7 +79,7 @@ resource "aws_instance" "cislave" {
   ]
 
   tags {
-    Name = "SCA CI Slave ${count.index}"
+    Name = "sca-cislave-aws-${count.index}"
     env = "staging"
     class = "cislave"
     project = "sca"
@@ -116,10 +118,10 @@ resource "aws_instance" "cislave" {
 }
 
 # TODO: merge with doc and gcp
-output "cislave_ip" {
+output "aws_cislave_ip" {
   value = "${aws_instance.cislave.*.public_ip}"
 }
 
-output "cislave_id" {
+output "aws_cislave_id" {
   value = "${aws_instance.cislave.*.id}"
 }

@@ -1,4 +1,4 @@
-# SCA CI common doc objects
+# SCA RIG common DOC objects
 
 resource "digitalocean_ssh_key" "sca" {
   provider = "digitalocean.sca"
@@ -6,7 +6,7 @@ resource "digitalocean_ssh_key" "sca" {
   public_key = "${file("${var.sca_key_pub}")}"
 }
 
-# TODO: uncertain tag sort order. it mutate each apply.
+# TODO: uncertain tag sort order. it mutate each apply. confirmes tf bug. https://github.com/terraform-providers/terraform-provider-digitalocean/issues/7
 resource "digitalocean_tag" "do_project_sca" {
   provider = "digitalocean.sca"
   name = "do_project_sca"
