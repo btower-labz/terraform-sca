@@ -40,6 +40,41 @@ resource "google_compute_instance" "cimaster" {
 
   metadata_startup_script = "echo hi > /test.txt"
 
+  # Deploy provision script
+  provisioner "file" {
+    source      = "scripts/pro-gcp.sh"
+    destination = "~/pro-gcp.sh"
+
+    connection {
+      type = "ssh"
+      user = "labz"
+      # password = ""
+      private_key = "${file("${var.sca_key_ppk}")}"
+      agent = false
+    }
+  }
+
+
+  # Execute commands, use copied files.
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "labz"
+      private_key = "${file("${var.sca_key_ppk}")}"
+      agent = false
+    }
+    inline = [
+     # dbus is must.
+     "sudo apt-get update && apt-get install -y dbus",
+     "ls -la",
+     "sudo ls -la",
+     "echo ${self.network_interface.0.access_config.0.assigned_nat_ip}",
+     "chmod u+x,g+x,o+x ~/pro-gcp.sh",
+     "sudo ~/pro-gcp.sh"
+    ]
+  }
+
+
  # service_account {
  #   scopes = ["userinfo-email", "compute-ro", "storage-ro"]
  # }

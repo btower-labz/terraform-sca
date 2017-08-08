@@ -20,6 +20,40 @@ resource "digitalocean_droplet" "cimaster" {
     "${digitalocean_tag.do_project_sca.id}",
     "${digitalocean_tag.do_env_staging.id}"
   ]
+
+  # Deploy provision script
+  provisioner "file" {
+    source      = "scripts/pro-doc.sh"
+    destination = "~/pro-doc.sh"
+
+    connection {
+      type = "ssh"
+      user = "user"
+      # password = ""
+      private_key = "${file("${var.sca_key_ppk}")}"
+      agent = false
+    }
+  }
+
+
+  # Execute commands, use copied files.
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "user"
+      private_key = "${file("${var.sca_key_ppk}")}"
+      agent = false
+    }
+    inline = [
+     # dbus is must.
+     "ls -la",
+     "sudo ls -la",
+     "echo ${self.ipv4_address}",
+     "chmod u+x,g+x,o+x ~/pro-doc.sh",
+     "sudo ~/pro-doc.sh"
+    ]
+  }
+
 }
 
 output "doc_cimaster_ip" {
