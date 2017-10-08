@@ -82,6 +82,7 @@ data "aws_ami" "cislave" {
   filter {
     name   = "name"
     values = [ 
+ #     "debian-stretch-hvm-x86_64-gp2-2017-07-22-75922"
       "amzn-ami-hvm-*-x86_64-gp2" 
     ]
   }
@@ -93,7 +94,7 @@ data "aws_ami" "cislave" {
   }
 
   # One can filter by owner id
-  # owners = ["099720109477"]
+  # owners = ["379101102735"]
 }
 
 # Describe resource
